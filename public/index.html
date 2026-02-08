@@ -205,6 +205,7 @@
         let typingTimeout = null;
         let currentReply = null; // { username, text }
         let notificationsEnabled = false;
+        const appStartTime = Date.now();
 
         // --- Téma Kezelés ---
         function applyTheme(theme) {
@@ -633,9 +634,9 @@
             if (!message || message.username === currentUsername) return;
             if (Notification.permission !== "granted") return;
 
-            const isDesktopVisible =
-                document.visibilityState === "visible" && !isMobileDevice();
-            if (isDesktopVisible) {
+            if (message.timestamp && message.timestamp <= appStartTime) return;
+
+            if (document.visibilityState === "visible") {
                 return;
             }
 

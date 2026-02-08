@@ -1,7 +1,7 @@
 // Service Worker a PWA-hoz
 const CACHE_NAME = "chat-pwa-v1";
 const urlsToCache = [
-  "/chat.html",
+  "/index.html",
   "/",
   "https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js",
   "https://www.gstatic.com/firebasejs/9.22.0/firebase-database-compat.js",
